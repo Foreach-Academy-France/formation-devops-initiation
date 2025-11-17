@@ -272,7 +272,7 @@ formation-devops-initiation/
 ## 🎓 À Propos
 
 **Formateur**: Fabrice Claeys
-**LinkedIn**: https://www.linkedin.com/in/fabriceclaeys/
+**LinkedIn**: https://www.linkedin.com/in/fabrice-claeys-8b526910/
 **Organisme**: ForEach Academy
 **Certification**: M2 ESTD - Architecte Web
 
