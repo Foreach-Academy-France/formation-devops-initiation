@@ -1,0 +1,364 @@
+name: Deploy Slides to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build Slides
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install Marp CLI
+        run: bun add -g @marp-team/marp-cli
+
+      - name: Create output directories
+        run: |
+          mkdir -p public/slides
+          mkdir -p public/pdf
+
+      - name: Build HTML slides
+        run: |
+          for slide in slides/*.md; do
+            echo "Building $(basename $slide)..."
+            marp "$slide" --html --allow-local-files -o "public/slides/$(basename $slide .md).html"
+          done
+
+      - name: Build PDF slides
+        run: |
+          for slide in slides/*.md; do
+            echo "Building PDF for $(basename $slide)..."
+            marp "$slide" --html --allow-local-files --pdf -o "public/pdf/$(basename $slide .md).pdf"
+          done
+
+      - name: Copy additional files
+        run: |
+          # Copy TP and evaluation folders
+          cp -r tp public/
+          cp -r evaluation public/
+
+          # Copy README
+          cp README.md public/
+
+      - name: Create index.html
+        run: |
+          cat > public/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="fr">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Formation Initiation DevOps - ForEach Academy</title>
+              <style>
+                  * {
+                      margin: 0;
+                      padding: 0;
+                      box-sizing: border-box;
+                  }
+                  body {
+                      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                      line-height: 1.6;
+                      color: #333;
+                      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                      min-height: 100vh;
+                      padding: 2rem;
+                  }
+                  .container {
+                      max-width: 1200px;
+                      margin: 0 auto;
+                      background: white;
+                      border-radius: 20px;
+                      padding: 3rem;
+                      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                  }
+                  header {
+                      text-align: center;
+                      margin-bottom: 3rem;
+                      padding-bottom: 2rem;
+                      border-bottom: 3px solid #667eea;
+                  }
+                  h1 {
+                      color: #667eea;
+                      font-size: 2.5rem;
+                      margin-bottom: 0.5rem;
+                  }
+                  .subtitle {
+                      color: #666;
+                      font-size: 1.2rem;
+                  }
+                  .info {
+                      background: #f7f7f7;
+                      padding: 1.5rem;
+                      border-radius: 10px;
+                      margin: 2rem 0;
+                  }
+                  .info p {
+                      margin: 0.5rem 0;
+                  }
+                  .section {
+                      margin: 2rem 0;
+                  }
+                  .section h2 {
+                      color: #764ba2;
+                      margin-bottom: 1rem;
+                      font-size: 1.8rem;
+                  }
+                  .grid {
+                      display: grid;
+                      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                      gap: 1.5rem;
+                      margin-top: 1rem;
+                  }
+                  .card {
+                      background: #fff;
+                      border: 2px solid #e0e0e0;
+                      border-radius: 10px;
+                      padding: 1.5rem;
+                      transition: all 0.3s ease;
+                  }
+                  .card:hover {
+                      border-color: #667eea;
+                      transform: translateY(-5px);
+                      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+                  }
+                  .card h3 {
+                      color: #667eea;
+                      margin-bottom: 0.5rem;
+                  }
+                  .card p {
+                      color: #666;
+                      font-size: 0.9rem;
+                      margin-bottom: 1rem;
+                  }
+                  .links {
+                      display: flex;
+                      gap: 0.5rem;
+                      flex-wrap: wrap;
+                  }
+                  .btn {
+                      display: inline-block;
+                      padding: 0.5rem 1rem;
+                      background: #667eea;
+                      color: white;
+                      text-decoration: none;
+                      border-radius: 5px;
+                      font-size: 0.9rem;
+                      transition: background 0.3s ease;
+                  }
+                  .btn:hover {
+                      background: #764ba2;
+                  }
+                  .btn-secondary {
+                      background: #48bb78;
+                  }
+                  .btn-secondary:hover {
+                      background: #38a169;
+                  }
+                  .btn-pdf {
+                      background: #e53e3e;
+                  }
+                  .btn-pdf:hover {
+                      background: #c53030;
+                  }
+                  footer {
+                      text-align: center;
+                      margin-top: 3rem;
+                      padding-top: 2rem;
+                      border-top: 2px solid #e0e0e0;
+                      color: #666;
+                  }
+                  .badge {
+                      display: inline-block;
+                      padding: 0.25rem 0.75rem;
+                      background: #48bb78;
+                      color: white;
+                      border-radius: 20px;
+                      font-size: 0.8rem;
+                      margin-left: 0.5rem;
+                  }
+              </style>
+          </head>
+          <body>
+              <div class="container">
+                  <header>
+                      <h1>🚀 Formation Initiation DevOps</h1>
+                      <p class="subtitle">ForEach Academy - M2 ESTD Architecte Web</p>
+                  </header>
+
+                  <div class="info">
+                      <p><strong>📅 Date:</strong> 19 novembre 2025</p>
+                      <p><strong>⏱️ Durée:</strong> 7 heures (9h00-17h00)</p>
+                      <p><strong>👨‍🏫 Formateur:</strong> Fabrice Claeys</p>
+                      <p><strong>🎯 Objectif:</strong> Maîtriser les pratiques DevOps essentielles (Git, CI/CD, Docker)</p>
+                  </div>
+
+                  <div class="section">
+                      <h2>📚 Modules de Formation</h2>
+                      <div class="grid">
+                          <div class="card">
+                              <h3>Module 2: Principes DevOps</h3>
+                              <p>Culture DevOps, chaîne de production, bénéfices entreprise (45min)</p>
+                              <div class="links">
+                                  <a href="slides/02-principes-devops.html" class="btn">🖥️ Slides HTML</a>
+                                  <a href="pdf/02-principes-devops.pdf" class="btn btn-pdf">📄 PDF</a>
+                              </div>
+                          </div>
+
+                          <div class="card">
+                              <h3>Module 3: Git & Versioning</h3>
+                              <p>Git, GitFlow, branches, tags + TP pratique (1h)</p>
+                              <div class="links">
+                                  <a href="slides/03-git-versioning.html" class="btn">🖥️ Slides HTML</a>
+                                  <a href="pdf/03-git-versioning.pdf" class="btn btn-pdf">📄 PDF</a>
+                                  <a href="tp/tp1-git-gitflow/README.md" class="btn btn-secondary">📝 TP1</a>
+                              </div>
+                          </div>
+
+                          <div class="card">
+                              <h3>Module 4: Build & Tests</h3>
+                              <p>Pyramide de tests, couverture de code + Démo live (1h)</p>
+                              <div class="links">
+                                  <a href="slides/04-build-tests.html" class="btn">🖥️ Slides HTML</a>
+                                  <a href="pdf/04-build-tests.pdf" class="btn btn-pdf">📄 PDF</a>
+                                  <a href="https://github.com/Foreach-Academy-France/devops-demo-tests" class="btn btn-secondary">🎬 Démo</a>
+                              </div>
+                          </div>
+
+                          <div class="card">
+                              <h3>Module 5: CI/CD GitHub Actions</h3>
+                              <p>Pipelines automatisés, workflows YAML + TP pratique (1h15)</p>
+                              <div class="links">
+                                  <a href="slides/05-cicd-github-actions.html" class="btn">🖥️ Slides HTML</a>
+                                  <a href="pdf/05-cicd-github-actions.pdf" class="btn btn-pdf">📄 PDF</a>
+                                  <a href="tp/tp2-github-actions/README.md" class="btn btn-secondary">📝 TP2</a>
+                                  <a href="https://github.com/Foreach-Academy-France/devops-demo-pipeline" class="btn btn-secondary">🎬 Démo</a>
+                              </div>
+                          </div>
+
+                          <div class="card">
+                              <h3>Module 7: Docker</h3>
+                              <p>Conteneurisation, multi-stage, docker-compose + TP (1h)</p>
+                              <div class="links">
+                                  <a href="slides/06-docker.html" class="btn">🖥️ Slides HTML</a>
+                                  <a href="pdf/06-docker.pdf" class="btn btn-pdf">📄 PDF</a>
+                                  <a href="tp/tp3-docker/README.md" class="btn btn-secondary">📝 TP3</a>
+                                  <a href="https://github.com/Foreach-Academy-France/devops-demo-docker" class="btn btn-secondary">🎬 Démo</a>
+                              </div>
+                          </div>
+
+                          <div class="card">
+                              <h3>Modules 6 & 8: Autres Outils</h3>
+                              <p>IaC (Ansible, Terraform), Kubernetes, Monitoring (45min)</p>
+                              <div class="links">
+                                  <a href="slides/07-autres-outils.html" class="btn">🖥️ Slides HTML</a>
+                                  <a href="pdf/07-autres-outils.pdf" class="btn btn-pdf">📄 PDF</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="section">
+                      <h2>📝 Évaluation</h2>
+                      <div class="grid">
+                          <div class="card">
+                              <h3>QCM Final</h3>
+                              <p>30 questions - 20 minutes - Seuil: 80%</p>
+                              <div class="links">
+                                  <a href="evaluation/qcm.md" class="btn">📋 QCM</a>
+                              </div>
+                          </div>
+                          <div class="card">
+                              <h3>Grille d'Évaluation TP</h3>
+                              <p>100 points - Validation C19 & C20</p>
+                              <div class="links">
+                                  <a href="evaluation/grille-evaluation.md" class="btn">📊 Grille</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="section">
+                      <h2>🎬 Démos Live</h2>
+                      <div class="grid">
+                          <div class="card">
+                              <h3>🧪 Tests Automatisés</h3>
+                              <p>Pyramide de tests avec Vitest - 60 tests, 94.75% couverture</p>
+                              <div class="links">
+                                  <a href="https://github.com/Foreach-Academy-France/devops-demo-tests" class="btn">💻 Code Source</a>
+                              </div>
+                          </div>
+                          <div class="card">
+                              <h3>🚀 Pipeline CI/CD</h3>
+                              <p>GitHub Actions complet - Matrix builds, artifacts, déploiements</p>
+                              <div class="links">
+                                  <a href="https://github.com/Foreach-Academy-France/devops-demo-pipeline" class="btn">💻 Code Source</a>
+                              </div>
+                          </div>
+                          <div class="card">
+                              <h3>🐳 Docker Multi-Stage</h3>
+                              <p>Stack complète - API, PostgreSQL, Redis, Nginx (148 MB)</p>
+                              <div class="links">
+                                  <a href="https://github.com/Foreach-Academy-France/devops-demo-docker" class="btn">💻 Code Source</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="section">
+                      <h2>🛠️ Prérequis</h2>
+                      <ul style="list-style-position: inside; margin-left: 1rem;">
+                          <li>Git installé (version 2.x ou supérieure)</li>
+                          <li>Compte GitHub créé et configuré</li>
+                          <li>Docker Desktop installé et fonctionnel</li>
+                          <li>Node.js 20+ ou Bun installé</li>
+                          <li>VS Code (ou autre éditeur de code)</li>
+                      </ul>
+                  </div>
+
+                  <footer>
+                      <p><strong>ForEach Academy</strong> - Formation M2 ESTD</p>
+                      <p>Formateur: Fabrice Claeys | <a href="https://www.linkedin.com/in/fabriceclaeys/" target="_blank">LinkedIn</a></p>
+                      <p style="margin-top: 1rem; font-size: 0.9rem; color: #999;">
+                          🤖 Site généré automatiquement avec GitHub Actions et Marp CLI
+                      </p>
+                  </footer>
+              </div>
+          </body>
+          </html>
+          EOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './public'
+
+  deploy:
+    name: Deploy to GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
