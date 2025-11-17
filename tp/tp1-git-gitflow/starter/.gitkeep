@@ -1,0 +1,10 @@
+# Ce dossier est intentionnellement vide
+
+Les étudiants créeront leur projet Git depuis zéro dans ce TP.
+
+Le workflow commence par:
+```bash
+mkdir mon-projet-devops
+cd mon-projet-devops
+git init
+```

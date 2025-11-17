@@ -1,0 +1,66 @@
+name: Deploy
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:  # Permet déclenchement manuel
+
+jobs:
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-20-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build for production
+        run: npm run build
+
+      - name: Deploy (Simulated)
+        run: |
+          echo "🚀 Déploiement vers production..."
+          echo "📦 Version: ${{ github.ref_name }}"
+          echo "✅ Déploiement simulé réussi!"
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref_name }}
+          body: |
+            ## 🚀 Nouvelle Release
+
+            **Version**: ${{ github.ref_name }}
+            **Date**: ${{ github.event.head_commit.timestamp }}
+
+            ### Changements
+            - Voir les commits depuis la dernière release
+
+            ### Tests
+            - ✅ Tous les tests passent
+            - ✅ Build réussi
+            - ✅ Déployé en production
+
+          draft: false
+          prerelease: false
