@@ -2,6 +2,8 @@
 
 > Formation d'une journée (7h) sur les pratiques DevOps essentielles pour développeurs web
 
+**🌐 Site de la formation**: https://foreach-academy-france.github.io/formation-devops-initiation/
+
 **Public**: M2 ESTD - Expert en stratégie et transformation digitale - Architecte Web
 **Date**: 19 novembre 2025
 **Organisme**: ForEach Academy
