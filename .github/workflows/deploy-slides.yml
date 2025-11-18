@@ -350,6 +350,15 @@ jobs:
                       <h2>📚 Modules de Formation</h2>
                       <div class="grid">
                           <div class="card">
+                              <h3>Module 0: Introduction</h3>
+                              <p>Accueil, présentation de la journée et objectifs pédagogiques (15min)</p>
+                              <div class="links">
+                                  <a href="slides/00-introduction.html" class="btn">🖥️ Slides HTML</a>
+                                  <a href="pdf/00-introduction.pdf" class="btn btn-pdf">📄 PDF</a>
+                              </div>
+                          </div>
+
+                          <div class="card">
                               <h3>Module 2: Principes DevOps</h3>
                               <p>Culture DevOps, chaîne de production, bénéfices entreprise (45min)</p>
                               <div class="links">
@@ -406,6 +415,15 @@ jobs:
                               <div class="links">
                                   <a href="slides/07-autres-outils.html" class="btn">🖥️ Slides HTML</a>
                                   <a href="pdf/07-autres-outils.pdf" class="btn btn-pdf">📄 PDF</a>
+                              </div>
+                          </div>
+
+                          <div class="card">
+                              <h3>Module 8: Conclusion</h3>
+                              <p>Récapitulatif, QCM d'évaluation, Q&A et ressources (30min)</p>
+                              <div class="links">
+                                  <a href="slides/08-conclusion.html" class="btn">🖥️ Slides HTML</a>
+                                  <a href="pdf/08-conclusion.pdf" class="btn btn-pdf">📄 PDF</a>
                               </div>
                           </div>
                       </div>
