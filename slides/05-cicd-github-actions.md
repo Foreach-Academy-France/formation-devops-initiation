@@ -152,18 +152,29 @@ ForEach Academy | Novembre 2025
 
 ## CI vs CD vs Continuous Deployment
 
-```
-Continuous Integration (CI)
-   │ Merge → Build → Test
-   ▼
-Continuous Delivery (CD)
-   │ + Package → Deploy automatique en STAGING
-   │              Deploy MANUEL en PRODUCTION
-   ▼
-Continuous Deployment
-   │ Tout automatique jusqu'en PRODUCTION
-   └─> Déploiement automatique si tests ✅
-```
+<div style="display: flex; flex-direction: column; gap: 20px; margin: 30px auto; max-width: 700px;">
+  <!-- CI -->
+  <div style="background: #3b82f6; color: white; padding: 20px; border-radius: 8px;">
+    <div style="font-weight: bold; font-size: 20px; margin-bottom: 10px;">🔵 Continuous Integration (CI)</div>
+    <div style="font-size: 16px;">Merge → Build → Test</div>
+  </div>
+
+  <div style="text-align: center; font-size: 24px;">⬇️</div>
+
+  <!-- CD -->
+  <div style="background: #f59e0b; color: white; padding: 20px; border-radius: 8px; margin-left: 50px;">
+    <div style="font-weight: bold; font-size: 20px; margin-bottom: 10px;">🟡 Continuous Delivery (CD)</div>
+    <div style="font-size: 16px;">+ Package → Deploy auto STAGING<br>Deploy <span style="background: #dc2626; padding: 2px 6px; border-radius: 3px;">MANUEL</span> en PRODUCTION</div>
+  </div>
+
+  <div style="text-align: center; font-size: 24px;">⬇️</div>
+
+  <!-- Continuous Deployment -->
+  <div style="background: #48bb78; color: white; padding: 20px; border-radius: 8px; margin-left: 100px;">
+    <div style="font-weight: bold; font-size: 20px; margin-bottom: 10px;">🟢 Continuous Deployment</div>
+    <div style="font-size: 16px;">Tout automatique jusqu'en PRODUCTION<br>Déploiement auto si tests ✅</div>
+  </div>
+</div>
 
 ---
 
