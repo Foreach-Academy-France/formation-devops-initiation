@@ -105,11 +105,19 @@ style: |
 
 ### Avant DevOps : Le mur de confusion
 
-```
-👨‍💻 Développeurs          |  🧑‍🔧 Opérations
-"Ça marche sur ma machine!" | "Tu casses la prod!"
-                    😡 |  😡
-```
+<div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin: 30px 0; font-size: 18px;">
+  <div style="text-align: center;">
+    👨‍💻 <strong>Développeurs</strong><br>
+    "Ça marche sur ma machine!"<br>
+    😡
+  </div>
+  <div style="font-size: 48px; color: #666;">|</div>
+  <div style="text-align: center;">
+    🧑‍🔧 <strong>Opérations</strong><br>
+    "Tu casses la prod!"<br>
+    😡
+  </div>
+</div>
 
 - **Dev** : Livrer des fonctionnalités rapidement
 - **Ops** : Maintenir la stabilité du système
