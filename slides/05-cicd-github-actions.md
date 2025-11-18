@@ -212,27 +212,30 @@ timeline
 
 ## Anatomie d'un Pipeline CI/CD
 
-```
-┌──────────────────────────────────────────────────────────┐
-│                     PIPELINE CI/CD                        │
-└──────────────────────────────────────────────────────────┘
+<div class="mermaid">
+flowchart TD
+    A[1. Checkout<br/>Clone du repo] --> B[2. Install<br/>npm install / pip install]
+    B --> C[3. Lint<br/>ESLint / Prettier]
+    C --> D[4. Test<br/>Vitest / pytest]
+    D --> E[Unit tests]
+    D --> F[Integration tests]
+    E --> G[5. Build<br/>vite build / docker build]
+    F --> G
+    G --> H[6. Upload<br/>Artifact: Docker image, bundle.js]
+    H --> I[7. Deploy<br/>Staging]
+    I --> J[Deploy Manuel<br/>Production]
 
-[1. Checkout]  ─┬─> Clone du repo
-                │
-[2. Install]   ─┼─> npm install / pip install
-                │
-[3. Lint]      ─┼─> ESLint / Prettier
-                │
-[4. Test]      ─┼─> Vitest / pytest (parallèle)
-                │   ├─ Unit tests
-                │   └─ Integration tests
-                │
-[5. Build]     ─┼─> vite build / docker build
-                │
-[6. Upload]    ─┼─> Artifact (Docker image, bundle.js)
-                │
-[7. Deploy]    ─┴─> Staging → (manuel) → Production
-```
+    style A fill:#3b82f6,color:#fff
+    style B fill:#3b82f6,color:#fff
+    style C fill:#f59e0b,color:#fff
+    style D fill:#f59e0b,color:#fff
+    style E fill:#fbbf24,color:#000
+    style F fill:#fbbf24,color:#000
+    style G fill:#48bb78,color:#fff
+    style H fill:#48bb78,color:#fff
+    style I fill:#8b5cf6,color:#fff
+    style J fill:#e53e3e,color:#fff
+</div>
 
 ---
 
