@@ -264,31 +264,21 @@ flowchart TD
 
 ## Architecture GitHub Actions
 
-```
-Repository
-  └─ .github/workflows/
-      ├─ ci.yml          ← WORKFLOW (fichier YAML)
-      └─ deploy.yml
-                            │
-                            ▼
-                    ┌──────────────┐
-                    │   WORKFLOW   │  Fichier YAML décrivant l'automatisation
-                    └──────┬───────┘
-                           │
-                    on: [push, ...]  ← EVENTS (triggers)
-                           │
-                    ┌──────▼───────┐
-                    │     JOBS     │  Ensemble de steps (parallèles ou séquentiels)
-                    └──────┬───────┘
-                           │
-                    ┌──────▼───────┐
-                    │    STEPS     │  Actions individuelles (run: ou uses:)
-                    └──────┬───────┘
-                           │
-                    ┌──────▼───────┐
-                    │   ACTIONS    │  Code réutilisable (Marketplace ou custom)
-                    └──────────────┘
-```
+<div class="mermaid">
+flowchart TD
+    A[Repository<br/>.github/workflows/] --> B[WORKFLOW<br/>ci.yml, deploy.yml]
+    B --> C[EVENTS<br/>Triggers: push, pull_request, schedule...]
+    C --> D[JOBS<br/>Ensemble de steps parallèles ou séquentiels]
+    D --> E[STEPS<br/>Actions individuelles: run: ou uses:]
+    E --> F[ACTIONS<br/>Code réutilisable Marketplace ou custom]
+
+    style A fill:#6b7280,color:#fff
+    style B fill:#3b82f6,color:#fff
+    style C fill:#f59e0b,color:#fff
+    style D fill:#8b5cf6,color:#fff
+    style E fill:#48bb78,color:#fff
+    style F fill:#ec4899,color:#fff
+</div>
 
 ---
 
