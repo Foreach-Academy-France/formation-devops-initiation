@@ -1,9 +1,65 @@
 ---
 marp: true
-theme: default
+theme: uncover
 paginate: true
-header: 'Module 4: Build & Tests Automatisés'
-footer: 'Cours DevOps - M2 ESTD | ForEach Academy | Nov 2025'
+footer: M2 ESTD - Gestion de projet Agile et DevOps | ForEach Academy
+style: |
+  section {
+    font-size: 20px;
+    padding: 40px 50px;
+  }
+  h1 {
+    font-size: 36px;
+    color: #2563eb;
+    margin: 0 0 15px 0;
+  }
+  h2 {
+    font-size: 28px;
+    color: #1e40af;
+    margin: 0 0 12px 0;
+  }
+  h3 {
+    font-size: 24px;
+    color: #3b82f6;
+    margin: 0 0 10px 0;
+  }
+  code {
+    font-size: 18px;
+    background: #f3f4f6;
+    padding: 1px 4px;
+    border-radius: 4px;
+  }
+  .highlight {
+    background: linear-gradient(120deg, #fbbf24 0%, #f59e0b 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+  }
+  table {
+    font-size: 16px;
+  }
+  blockquote {
+    border-left: 4px solid #3b82f6;
+    padding-left: 15px;
+    font-style: italic;
+    color: #4b5563;
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  ul {
+    margin: 10px 0;
+    padding-left: 25px;
+  }
+  li {
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+  pre {
+    font-size: 14px;
+    padding: 8px;
+    margin: 10px 0;
+  }
 ---
 
 <!-- _class: lead -->
