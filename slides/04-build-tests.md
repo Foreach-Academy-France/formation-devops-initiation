@@ -771,13 +771,43 @@ module.exports = {
 - **Function Coverage** : % de fonctions appelées
 
 **Exemple de rapport** :
-```
-File                | % Stmts | % Branch | % Funcs | % Lines |
---------------------|---------|----------|---------|---------|
-All files           |   84.21 |    73.33 |   88.88 |   84.21 |
- src/utils.ts       |     100 |      100 |     100 |     100 |
- src/services/      |   78.57 |    66.66 |   83.33 |   78.57 |
-```
+
+<div style="margin: 20px auto; max-width: 700px;">
+  <table style="width: 100%; border-collapse: collapse; font-size: 14px; font-family: 'Courier New', monospace;">
+    <thead>
+      <tr style="background: #667eea; color: white;">
+        <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">File</th>
+        <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">% Stmts</th>
+        <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">% Branch</th>
+        <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">% Funcs</th>
+        <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">% Lines</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background: #f9f9f9;">
+        <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">All files</td>
+        <td style="padding: 8px; text-align: center; border: 1px solid #ddd;">84.21</td>
+        <td style="padding: 8px; text-align: center; border: 1px solid #ddd;">73.33</td>
+        <td style="padding: 8px; text-align: center; border: 1px solid #ddd;">88.88</td>
+        <td style="padding: 8px; text-align: center; border: 1px solid #ddd;">84.21</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd; padding-left: 20px;">src/utils.ts</td>
+        <td style="padding: 8px; text-align: center; border: 1px solid #ddd; background: #d4edda; font-weight: bold;">100</td>
+        <td style="padding: 8px; text-align: center; border: 1px solid #ddd; background: #d4edda; font-weight: bold;">100</td>
+        <td style="padding: 8px; text-align: center; border: 1px solid #ddd; background: #d4edda; font-weight: bold;">100</td>
+        <td style="padding: 8px; text-align: center; border: 1px solid #ddd; background: #d4edda; font-weight: bold;">100</td>
+      </tr>
+      <tr style="background: #f9f9f9;">
+        <td style="padding: 8px; border: 1px solid #ddd; padding-left: 20px;">src/services/</td>
+        <td style="padding: 8px; text-align: center; border: 1px solid #ddd;">78.57</td>
+        <td style="padding: 8px; text-align: center; border: 1px solid #ddd;">66.66</td>
+        <td style="padding: 8px; text-align: center; border: 1px solid #ddd;">83.33</td>
+        <td style="padding: 8px; text-align: center; border: 1px solid #ddd;">78.57</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ---
 
