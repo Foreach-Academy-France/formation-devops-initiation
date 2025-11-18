@@ -435,17 +435,19 @@ MAJOR.MINOR.PATCH
 
 **Pas seulement le code applicatif !**
 
-```
-mon-projet/
-├── src/                  # Code application
-├── tests/                # Tests
-├── docs/                 # Documentation
-├── .github/workflows/    # CI/CD (GitHub Actions)
-├── terraform/            # Infrastructure
-├── ansible/              # Configuration
-├── docker-compose.yml    # Containers
-└── kubernetes/           # Orchestration
-```
+<div style="background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 15px; margin: 20px 0;">
+<table style="border: none; width: 100%;">
+<tr><td style="border: none; color: #569cd6;">mon-projet/</td></tr>
+<tr><td style="border: none;">├── src/</td><td style="border: none; color: #6a9955;"># Code application</td></tr>
+<tr><td style="border: none;">├── tests/</td><td style="border: none; color: #6a9955;"># Tests</td></tr>
+<tr><td style="border: none;">├── docs/</td><td style="border: none; color: #6a9955;"># Documentation</td></tr>
+<tr><td style="border: none;">├── .github/workflows/</td><td style="border: none; color: #6a9955;"># CI/CD (GitHub Actions)</td></tr>
+<tr><td style="border: none;">├── terraform/</td><td style="border: none; color: #6a9955;"># Infrastructure</td></tr>
+<tr><td style="border: none;">├── ansible/</td><td style="border: none; color: #6a9955;"># Configuration</td></tr>
+<tr><td style="border: none;">├── docker-compose.yml</td><td style="border: none; color: #6a9955;"># Containers</td></tr>
+<tr><td style="border: none;">└── kubernetes/</td><td style="border: none; color: #6a9955;"># Orchestration</td></tr>
+</table>
+</div>
 
 ---
 
