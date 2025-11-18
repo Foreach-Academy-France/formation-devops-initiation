@@ -220,7 +220,7 @@ timeline
 
 ## Anatomie d'un Pipeline CI/CD
 
-<div class="mermaid">
+```mermaid
 flowchart LR
     A[Checkout] --> B[Install]
     B --> C[Lint]
@@ -243,7 +243,7 @@ flowchart LR
     style H fill:#48bb78,color:#fff
     style I fill:#8b5cf6,color:#fff
     style J fill:#e53e3e,color:#fff
-</div>
+```
 
 **Checkout** → Clone repo | **Install** → Dépendances | **Lint** → ESLint | **Test** → Vitest/pytest | **Build** → vite/docker | **Upload** → Artifacts | **Deploy** → Staging puis Prod
 
@@ -274,7 +274,7 @@ flowchart LR
 
 ## Architecture GitHub Actions
 
-<div class="mermaid">
+```mermaid
 flowchart TD
     A[Repository] --> B[WORKFLOW]
     B --> C[EVENTS]
@@ -288,7 +288,7 @@ flowchart TD
     style D fill:#8b5cf6,color:#fff
     style E fill:#48bb78,color:#fff
     style F fill:#ec4899,color:#fff
-</div>
+```
 
 **Repository** (.github/workflows/) → **WORKFLOW** (ci.yml) → **EVENTS** (push, PR) → **JOBS** (parallèles) → **STEPS** (run:/uses:) → **ACTIONS** (Marketplace)
 
