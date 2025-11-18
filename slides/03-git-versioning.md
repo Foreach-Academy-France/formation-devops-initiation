@@ -641,11 +641,28 @@ git merge hotfix/1.2.1
 
 ### Pour le déploiement continu
 
-```
-main    ●───●───●───●───●───●
-         \     / \     / \   /
-features  ●───●   ●───●   ●─●
-```
+<div class="mermaid">
+gitGraph
+  commit id: "C1"
+  branch feature/login
+  checkout feature/login
+  commit id: "Login"
+  commit id: "Tests"
+  checkout main
+  merge feature/login
+  commit id: "C2"
+  branch feature/api
+  checkout feature/api
+  commit id: "API"
+  commit id: "Docs"
+  checkout main
+  merge feature/api
+  branch feature/ui
+  checkout feature/ui
+  commit id: "UI fix"
+  checkout main
+  merge feature/ui
+</div>
 
 **Règles :**
 1. `main` est **toujours** déployable
