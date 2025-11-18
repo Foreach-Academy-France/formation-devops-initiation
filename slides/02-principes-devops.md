@@ -186,11 +186,14 @@ style: |
 
 ### Le cycle DevOps complet :
 
-```
-Plan → Code → Build → Test → Release → Deploy → Operate → Monitor
-  ↑                                                            ↓
-  ←←←←←←←←←←←←← Feedback & Amélioration ←←←←←←←←←←←←←←←←←←←←←
-```
+<div style="background: #f5f5f5; padding: 30px; border-radius: 10px; margin: 20px 0;">
+  <div style="text-align: center; font-size: 20px; font-weight: bold; margin-bottom: 15px;">
+    Plan → Code → Build → Test → Release → Deploy → Operate → Monitor
+  </div>
+  <div style="text-align: center; font-size: 20px; color: #667eea; font-weight: bold; margin-top: 15px;">
+    ↻ Feedback & Amélioration Continue ↻
+  </div>
+</div>
 
 C'est un **cycle continu** d'amélioration !
 
