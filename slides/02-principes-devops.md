@@ -315,16 +315,25 @@ C'est un **cycle continu** d'amélioration !
 
 ### Ils sont complémentaires !
 
-```
-Agile                DevOps
-  ↓                    ↓
-Planning          Automation
-Sprints    +      CI/CD
-Reviews           Monitoring
-  ↓                    ↓
-    Livraison continue
-    de valeur business
-```
+<div style="display: flex; justify-content: center; align-items: center; gap: 60px; margin: 30px 0;">
+  <div style="text-align: center; background: #e3f2fd; padding: 20px; border-radius: 10px;">
+    <strong style="font-size: 22px;">Agile</strong><br><br>
+    Planning<br>
+    Sprints<br>
+    Reviews
+  </div>
+  <div style="font-size: 36px; font-weight: bold; color: #667eea;">+</div>
+  <div style="text-align: center; background: #f3e5f5; padding: 20px; border-radius: 10px;">
+    <strong style="font-size: 22px;">DevOps</strong><br><br>
+    Automation<br>
+    CI/CD<br>
+    Monitoring
+  </div>
+</div>
+
+<div style="text-align: center; font-size: 24px; color: #667eea; font-weight: bold; margin-top: 20px;">
+  ⬇️ Livraison continue de valeur business ⬇️
+</div>
 
 **Agile** : Comment on construit
 **DevOps** : Comment on livre et on opère
