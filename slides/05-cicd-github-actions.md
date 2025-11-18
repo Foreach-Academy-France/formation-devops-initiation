@@ -196,27 +196,17 @@ ForEach Academy | Novembre 2025
 
 ## Timeline CI/CD
 
-```
-2001  ─ Extreme Programming (Kent Beck, Martin Fowler)
-       │  "Integrate continuously"
-       │
-2005  ─ Hudson (Kohsuke Kawaguchi, Sun Microsystems)
-       │  Premier serveur CI open source populaire
-       │
-2011  ─ Jenkins (fork de Hudson)
-       │  Standard de facto pendant 10 ans
-       │
-2011  ─ Travis CI
-       │  Premier "CI as a Service" (gratuit pour OSS)
-       │
-2013  ─ Circle CI
-       │  Concurrence Travis avec Docker support
-       │
-2019  ─ GitHub Actions 🚀
-       │  Game changer : intégré à GitHub
-       │
-2024  ─ 4 millions de workflows/jour sur GitHub Actions
-```
+<div class="mermaid">
+timeline
+    title Histoire de l'Intégration et Livraison Continue
+    2001 : Extreme Programming : "Integrate continuously" (Kent Beck, Martin Fowler)
+    2005 : Hudson : Premier serveur CI open source populaire
+    2011 : Jenkins : Fork de Hudson : Standard de facto pendant 10 ans
+    2011 : Travis CI : Premier "CI as a Service" gratuit pour OSS
+    2013 : Circle CI : Concurrent avec Docker support
+    2019 : GitHub Actions 🚀 : Game changer intégré à GitHub
+    2024 : GitHub Actions : 4 millions de workflows/jour
+</div>
 
 ---
 
