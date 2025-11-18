@@ -221,6 +221,8 @@ index 0000000..abc1234
 - `refactor`: Refactoring (sans changement de comportement)
 - `test`: Ajout/modification de tests
 
+💡 **Alternative visuelle :** [Gitmoji](https://gitmoji.dev/) propose d'utiliser des emojis à la place des types texte (✨ feat, 🐛 fix, 📝 docs, ♻️ refactor, ✅ test)
+
 ---
 
 ## ✍️ Exemples de bons commits
