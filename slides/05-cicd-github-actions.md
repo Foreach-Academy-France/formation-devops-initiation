@@ -214,16 +214,24 @@ timeline
 
 <div class="mermaid">
 flowchart TD
-    A[1. Checkout<br/>Clone du repo] --> B[2. Install<br/>npm install / pip install]
-    B --> C[3. Lint<br/>ESLint / Prettier]
-    C --> D[4. Test<br/>Vitest / pytest]
+    A["1. Checkout
+    Clone du repo"] --> B["2. Install
+    npm install / pip install"]
+    B --> C["3. Lint
+    ESLint / Prettier"]
+    C --> D["4. Test
+    Vitest / pytest"]
     D --> E[Unit tests]
     D --> F[Integration tests]
-    E --> G[5. Build<br/>vite build / docker build]
+    E --> G["5. Build
+    vite build / docker build"]
     F --> G
-    G --> H[6. Upload<br/>Artifact: Docker image, bundle.js]
-    H --> I[7. Deploy<br/>Staging]
-    I --> J[Deploy Manuel<br/>Production]
+    G --> H["6. Upload
+    Artifact"]
+    H --> I["7. Deploy
+    Staging"]
+    I --> J["Deploy Manuel
+    Production"]
 
     style A fill:#3b82f6,color:#fff
     style B fill:#3b82f6,color:#fff
@@ -266,11 +274,17 @@ flowchart TD
 
 <div class="mermaid">
 flowchart TD
-    A[Repository<br/>.github/workflows/] --> B[WORKFLOW<br/>ci.yml, deploy.yml]
-    B --> C[EVENTS<br/>Triggers: push, pull_request, schedule...]
-    C --> D[JOBS<br/>Ensemble de steps parallèles ou séquentiels]
-    D --> E[STEPS<br/>Actions individuelles: run: ou uses:]
-    E --> F[ACTIONS<br/>Code réutilisable Marketplace ou custom]
+    A["Repository
+    .github/workflows/"] --> B["WORKFLOW
+    ci.yml, deploy.yml"]
+    B --> C["EVENTS
+    push, pull_request, schedule"]
+    C --> D["JOBS
+    Steps parallèles ou séquentiels"]
+    D --> E["STEPS
+    run: ou uses:"]
+    E --> F["ACTIONS
+    Marketplace ou custom"]
 
     style A fill:#6b7280,color:#fff
     style B fill:#3b82f6,color:#fff
