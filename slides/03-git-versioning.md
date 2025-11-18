@@ -111,13 +111,15 @@ projet-final-v3-cette-fois-c-est-bon.zip
 
 ### Une seule source, toute l'histoire :
 
-```bash
-git log --oneline
-a3f8b2c (HEAD -> main) Fix: correction bug connexion
-e7d9a1f feat: ajout authentification
-c4b5e8d docs: mise à jour README
-9f2d7a3 refactor: nettoyage du code
-```
+<div style="background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 16px; margin: 20px 0;">
+  <div style="color: #569cd6;">$ git log --oneline</div>
+  <div style="margin-top: 10px;">
+    <span style="color: #ce9178;">a3f8b2c</span> <span style="color: #4ec9b0;">(HEAD -> main)</span> <span style="color: #dcdcaa;">Fix:</span> correction bug connexion<br>
+    <span style="color: #ce9178;">e7d9a1f</span> <span style="color: #dcdcaa;">feat:</span> ajout authentification<br>
+    <span style="color: #ce9178;">c4b5e8d</span> <span style="color: #dcdcaa;">docs:</span> mise à jour README<br>
+    <span style="color: #ce9178;">9f2d7a3</span> <span style="color: #dcdcaa;">refactor:</span> nettoyage du code
+  </div>
+</div>
 
 ✅ Historique complet
 ✅ Qui a fait quoi, quand et pourquoi
