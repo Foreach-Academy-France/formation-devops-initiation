@@ -62,6 +62,12 @@ style: |
   }
 ---
 
+<!-- Mermaid support -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+</script>
+
 <!-- _class: lead -->
 
 # Module 4
@@ -128,46 +134,20 @@ ForEach Academy | Novembre 2025
 
 ## Timeline des outils de build majeurs
 
-```
-1976  Make (Stuart Feldman, Bell Labs)
-      │   "The grandfather of build tools"
-      │
-2000  Apache Ant (James Duncan Davidson)
-      │   Premier outil XML pour Java
-      │
-2004  Apache Maven (Jason van Zyl)
-      │   Convention over configuration
-      │   Maven Central Repository
-      │
-2012  Gradle (Hans Dockter)
-      │   DSL Groovy/Kotlin
-      │   Build incrémental et cache
-      │
-2010  npm (Isaac Z. Schlueter)
-      │   17 millions de packages en 2024
-```
-
----
-
-## Timeline (suite)
-
-```
-2016  Yarn (Facebook/Meta)
-      │   yarn.lock pour reproducibilité
-      │
-2017  pnpm (Zoltan Kochan)
-      │   Économie d'espace (hard links)
-      │
-2020  Vite (Evan You, créateur de Vue.js)
-      │   ESM natif, HMR ultra-rapide
-      │
-2020  Bun (Jarred Sumner)
-      │   Runtime + bundler + package manager
-      │   25x plus rapide que npm
-      │
-2024  Turbo (Vercel)
-      │   Build system pour monorepos
-```
+<div class="mermaid">
+timeline
+    title Évolution des Outils de Build (1976-2024)
+    1976 : Make : "The grandfather of build tools"
+    2000 : Apache Ant : Premier outil XML pour Java
+    2004 : Apache Maven : Convention over configuration : Maven Central Repository
+    2010 : npm : Package manager JavaScript
+    2012 : Gradle : DSL Groovy/Kotlin : Build incrémental
+    2016 : Yarn : yarn.lock pour reproducibilité
+    2017 : pnpm : Économie d'espace (hard links)
+    2020 : Vite : ESM natif : HMR ultra-rapide
+    2020 : Bun : Runtime + bundler + package manager : 25x plus rapide
+    2024 : Turbo : Build system pour monorepos
+</div>
 
 ---
 
