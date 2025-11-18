@@ -328,8 +328,9 @@ gitGraph
   commit id: "F1"
   commit id: "F2"
   checkout main
-  merge feature
+  merge feature type: HIGHLIGHT
     </div>
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 10px;">Main n'a pas bougé → avance directement</p>
   </div>
 
   <div>
@@ -342,11 +343,12 @@ gitGraph
   checkout feature
   commit id: "F1"
   commit id: "F2"
-  commit id: "F3"
   checkout main
   commit id: "C3"
+  commit id: "C4"
   merge feature
     </div>
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 10px;">Main a bougé → commit de fusion créé</p>
   </div>
 </div>
 
