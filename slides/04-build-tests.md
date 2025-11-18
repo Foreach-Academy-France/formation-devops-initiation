@@ -296,26 +296,24 @@ fastapi = "^0.104.0"
 
 ## La Pyramide de Tests (Mike Cohn, 2009)
 
-<div style="display: flex; justify-content: center; align-items: center; margin: 30px 0;">
-  <div style="position: relative; width: 500px; height: 350px;">
-    <!-- Niveau E2E (sommet) -->
-    <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 80px solid transparent; border-right: 80px solid transparent; border-bottom: 80px solid #e53e3e;">
-    </div>
-    <div style="position: absolute; top: 25px; left: 50%; transform: translateX(-50%); color: white; font-weight: bold; font-size: 18px;">E2E</div>
-    <div style="position: absolute; top: 5px; left: 55%; font-size: 14px; color: #666; white-space: nowrap;">← Peu nombreux, lents, coûteux</div>
-
-    <!-- Niveau Integration (milieu) -->
-    <div style="position: absolute; top: 80px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 150px solid transparent; border-right: 150px solid transparent; border-bottom: 100px solid #f59e0b;">
-    </div>
-    <div style="position: absolute; top: 120px; left: 50%; transform: translateX(-50%); color: white; font-weight: bold; font-size: 18px;">Integration</div>
-    <div style="position: absolute; top: 110px; left: 56%; font-size: 14px; color: #666; white-space: nowrap;">← Moyennement nombreux</div>
-
-    <!-- Niveau Unit (base) -->
-    <div style="position: absolute; top: 180px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 220px solid transparent; border-right: 220px solid transparent; border-bottom: 130px solid #48bb78;">
-    </div>
-    <div style="position: absolute; top: 230px; left: 50%; transform: translateX(-50%); color: white; font-weight: bold; font-size: 18px;">Unit Tests</div>
-    <div style="position: absolute; top: 220px; left: 58%; font-size: 14px; color: #666; white-space: nowrap;">← Très nombreux, rapides, peu coûteux</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 0; margin: 30px auto; max-width: 600px;">
+  <!-- E2E (sommet) -->
+  <div style="background: #e53e3e; color: white; padding: 15px 40px; text-align: center; font-weight: bold; font-size: 18px; border-radius: 5px 5px 0 0; width: 200px;">
+    E2E
   </div>
+  <div style="text-align: center; font-size: 14px; color: #666; margin: 5px 0;">Peu nombreux, lents, coûteux</div>
+
+  <!-- Integration (milieu) -->
+  <div style="background: #f59e0b; color: white; padding: 20px 60px; text-align: center; font-weight: bold; font-size: 18px; width: 350px; margin-top: 10px;">
+    Integration
+  </div>
+  <div style="text-align: center; font-size: 14px; color: #666; margin: 5px 0;">Moyennement nombreux</div>
+
+  <!-- Unit (base) -->
+  <div style="background: #48bb78; color: white; padding: 25px 80px; text-align: center; font-weight: bold; font-size: 18px; border-radius: 0 0 5px 5px; width: 500px; margin-top: 10px;">
+    Unit Tests
+  </div>
+  <div style="text-align: center; font-size: 14px; color: #666; margin: 5px 0;">Très nombreux, rapides, peu coûteux</div>
 </div>
 
 **Ratio recommandé** : 70% Unit / 20% Integration / 10% E2E
@@ -481,23 +479,21 @@ test('user can login and see dashboard', async ({ page }) => {
 
 Réinterprétation moderne de la pyramide :
 
-<div style="display: flex; justify-content: center; align-items: center; margin: 30px 0;">
-  <div style="position: relative; width: 500px; height: 350px;">
-    <!-- Niveau E2E (sommet) -->
-    <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 80px solid transparent; border-right: 80px solid transparent; border-bottom: 70px solid #e53e3e;">
-    </div>
-    <div style="position: absolute; top: 25px; left: 50%; transform: translateX(-50%); color: white; font-weight: bold; font-size: 16px;">E2E</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 0; margin: 30px auto; max-width: 600px;">
+  <!-- E2E (sommet petit) -->
+  <div style="background: #e53e3e; color: white; padding: 12px 30px; text-align: center; font-weight: bold; font-size: 16px; border-radius: 5px 5px 0 0; width: 180px;">
+    E2E
+  </div>
 
-    <!-- Niveau Integration (LARGE - sweet spot) -->
-    <div style="position: absolute; top: 70px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 180px solid transparent; border-right: 180px solid transparent; border-bottom: 140px solid #f59e0b;">
-    </div>
-    <div style="position: absolute; top: 130px; left: 50%; transform: translateX(-50%); color: white; font-weight: bold; font-size: 18px;">Integration</div>
-    <div style="position: absolute; top: 115px; left: 58%; font-size: 14px; color: #667eea; font-weight: bold; white-space: nowrap;">← Sweet spot (meilleur ROI)</div>
+  <!-- Integration (LARGE - sweet spot) -->
+  <div style="background: #f59e0b; color: white; padding: 30px 80px; text-align: center; font-weight: bold; font-size: 20px; width: 450px; margin-top: 5px; border: 3px solid #667eea;">
+    Integration ⭐
+  </div>
+  <div style="text-align: center; font-size: 14px; color: #667eea; font-weight: bold; margin: 5px 0;">Sweet spot (meilleur ROI)</div>
 
-    <!-- Niveau Unit + Static (base) -->
-    <div style="position: absolute; top: 210px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 200px solid transparent; border-right: 200px solid transparent; border-bottom: 100px solid #48bb78;">
-    </div>
-    <div style="position: absolute; top: 250px; left: 50%; transform: translateX(-50%); color: white; font-weight: bold; font-size: 16px;">Unit + Static</div>
+  <!-- Unit + Static (base moyenne) -->
+  <div style="background: #48bb78; color: white; padding: 20px 60px; text-align: center; font-weight: bold; font-size: 18px; border-radius: 0 0 5px 5px; width: 350px; margin-top: 10px;">
+    Unit + Static
   </div>
 </div>
 
