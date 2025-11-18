@@ -296,18 +296,27 @@ fastapi = "^0.104.0"
 
 ## La Pyramide de Tests (Mike Cohn, 2009)
 
-```
-           /\
-          /  \
-        /  E2E  \    ← Peu nombreux, lents, coûteux
-       /________\
-      /          \
-     / Integration \  ← Moyennement nombreux
-    /______________\
-   /                \
-  /   Unit Tests     \ ← Très nombreux, rapides, peu coûteux
- /____________________\
-```
+<div style="display: flex; justify-content: center; align-items: center; margin: 30px 0;">
+  <div style="position: relative; width: 500px; height: 350px;">
+    <!-- Niveau E2E (sommet) -->
+    <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 80px solid transparent; border-right: 80px solid transparent; border-bottom: 80px solid #e53e3e;">
+    </div>
+    <div style="position: absolute; top: 25px; left: 50%; transform: translateX(-50%); color: white; font-weight: bold; font-size: 18px;">E2E</div>
+    <div style="position: absolute; top: 5px; left: 55%; font-size: 14px; color: #666; white-space: nowrap;">← Peu nombreux, lents, coûteux</div>
+
+    <!-- Niveau Integration (milieu) -->
+    <div style="position: absolute; top: 80px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 150px solid transparent; border-right: 150px solid transparent; border-bottom: 100px solid #f59e0b;">
+    </div>
+    <div style="position: absolute; top: 120px; left: 50%; transform: translateX(-50%); color: white; font-weight: bold; font-size: 18px;">Integration</div>
+    <div style="position: absolute; top: 110px; left: 56%; font-size: 14px; color: #666; white-space: nowrap;">← Moyennement nombreux</div>
+
+    <!-- Niveau Unit (base) -->
+    <div style="position: absolute; top: 180px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 220px solid transparent; border-right: 220px solid transparent; border-bottom: 130px solid #48bb78;">
+    </div>
+    <div style="position: absolute; top: 230px; left: 50%; transform: translateX(-50%); color: white; font-weight: bold; font-size: 18px;">Unit Tests</div>
+    <div style="position: absolute; top: 220px; left: 58%; font-size: 14px; color: #666; white-space: nowrap;">← Très nombreux, rapides, peu coûteux</div>
+  </div>
+</div>
 
 **Ratio recommandé** : 70% Unit / 20% Integration / 10% E2E
 
