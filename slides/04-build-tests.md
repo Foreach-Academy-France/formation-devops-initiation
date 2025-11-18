@@ -481,19 +481,25 @@ test('user can login and see dashboard', async ({ page }) => {
 
 Réinterprétation moderne de la pyramide :
 
-```
-           /\
-          /  \
-        / E2E  \
-       /________\
-      /          \
-     /            \
-    /  Integration \ ← Le sweet spot (meilleur ROI)
-   /________________\
-  /                  \
- /   Unit   Static    \
-/______________________\
-```
+<div style="display: flex; justify-content: center; align-items: center; margin: 30px 0;">
+  <div style="position: relative; width: 500px; height: 350px;">
+    <!-- Niveau E2E (sommet) -->
+    <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 80px solid transparent; border-right: 80px solid transparent; border-bottom: 70px solid #e53e3e;">
+    </div>
+    <div style="position: absolute; top: 25px; left: 50%; transform: translateX(-50%); color: white; font-weight: bold; font-size: 16px;">E2E</div>
+
+    <!-- Niveau Integration (LARGE - sweet spot) -->
+    <div style="position: absolute; top: 70px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 180px solid transparent; border-right: 180px solid transparent; border-bottom: 140px solid #f59e0b;">
+    </div>
+    <div style="position: absolute; top: 130px; left: 50%; transform: translateX(-50%); color: white; font-weight: bold; font-size: 18px;">Integration</div>
+    <div style="position: absolute; top: 115px; left: 58%; font-size: 14px; color: #667eea; font-weight: bold; white-space: nowrap;">← Sweet spot (meilleur ROI)</div>
+
+    <!-- Niveau Unit + Static (base) -->
+    <div style="position: absolute; top: 210px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 200px solid transparent; border-right: 200px solid transparent; border-bottom: 100px solid #48bb78;">
+    </div>
+    <div style="position: absolute; top: 250px; left: 50%; transform: translateX(-50%); color: white; font-weight: bold; font-size: 16px;">Unit + Static</div>
+  </div>
+</div>
 
 **Philosophie** : "Write tests. Not too many. Mostly integration."
 
