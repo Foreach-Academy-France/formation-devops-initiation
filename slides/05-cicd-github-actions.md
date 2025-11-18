@@ -109,14 +109,23 @@ ForEach Academy | Novembre 2025
 
 **Problème classique avant la CI** :
 
-```
-Développeur A ──┐
-Développeur B ──┼──> [Merge manuel]  ──> ⚠️ CONFLITS ⚠️
-Développeur C ──┘     (une fois par semaine)      │
-                                                   ▼
-                                            [Bug marathon]
-                                            (2-3 jours perdus)
-```
+<div style="display: flex; justify-content: center; align-items: center; gap: 30px; margin: 30px 0; background: #f5f5f5; padding: 30px; border-radius: 10px;">
+  <div style="display: flex; flex-direction: column; gap: 15px;">
+    <div style="padding: 8px 15px; background: #3b82f6; color: white; border-radius: 5px; font-weight: bold;">Développeur A</div>
+    <div style="padding: 8px 15px; background: #3b82f6; color: white; border-radius: 5px; font-weight: bold;">Développeur B</div>
+    <div style="padding: 8px 15px; background: #3b82f6; color: white; border-radius: 5px; font-weight: bold;">Développeur C</div>
+  </div>
+  <div style="font-size: 36px;">→</div>
+  <div style="text-align: center; padding: 15px; background: #fbbf24; border-radius: 8px; font-weight: bold;">
+    Merge manuel<br>
+    <span style="font-size: 14px;">(une fois par semaine)</span>
+  </div>
+  <div style="font-size: 36px;">→</div>
+  <div style="text-align: center; padding: 15px; background: #e53e3e; color: white; border-radius: 8px; font-weight: bold;">
+    ⚠️ CONFLITS ⚠️<br>
+    <span style="font-size: 14px;">Bug marathon<br>(2-3 jours perdus)</span>
+  </div>
+</div>
 
 **Symptômes** :
 - 😱 Merge party le vendredi soir
