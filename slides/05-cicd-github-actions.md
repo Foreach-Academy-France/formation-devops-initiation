@@ -56,9 +56,17 @@ style: |
     line-height: 1.3;
   }
   pre {
-    font-size: 14px;
-    padding: 8px;
-    margin: 10px 0;
+    font-size: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    background: #1e1e1e !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  pre code {
+    background: transparent !important;
+    color: #d4d4d4;
+    font-size: 15px;
   }
 ---
 
