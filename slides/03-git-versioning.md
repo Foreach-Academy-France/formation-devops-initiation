@@ -316,58 +316,36 @@ git branch --merged
 
 ### 2 types de merge :
 
-**1. Fast-forward** (simple)
-
-<div style="background: #f5f5f5; padding: 20px; border-radius: 10px; margin: 15px 0;">
-  <div style="display: flex; align-items: center; margin-bottom: 20px;">
-    <strong style="width: 100px;">main</strong>
-    <div style="display: flex; align-items: center; gap: 15px;">
-      <span style="font-size: 20px;">●</span>
-      <span style="font-size: 20px;">─</span>
-      <span style="font-size: 20px;">●</span>
-      <span style="font-size: 20px;">─</span>
-      <span style="font-size: 20px; color: #667eea;">●</span>
-      <span style="font-size: 20px;">─</span>
-      <span style="font-size: 20px; color: #48bb78;">●</span>
-      <span style="font-size: 20px;">─</span>
-      <span style="font-size: 20px; color: #48bb78;">●</span>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 20px 0;">
+  <div>
+    <p style="text-align: center; font-weight: bold; margin-bottom: 10px;">1. Fast-forward (simple)</p>
+    <div class="mermaid">
+gitGraph
+  commit id: "C1"
+  commit id: "C2"
+  branch feature
+  checkout feature
+  commit id: "F1"
+  commit id: "F2"
+  checkout main
+  merge feature
     </div>
   </div>
-  <div style="display: flex; align-items: center;">
-    <strong style="width: 100px;">feature</strong>
-    <div style="display: flex; align-items: center; gap: 15px; margin-left: 74px;">
-      <span style="font-size: 20px; color: #48bb78;">●</span>
-      <span style="font-size: 20px; color: #48bb78;">─</span>
-      <span style="font-size: 20px; color: #48bb78;">●</span>
-    </div>
-  </div>
-</div>
 
-**2. Merge commit** (avec commit de fusion)
-
-<div style="background: #f5f5f5; padding: 20px; border-radius: 10px; margin: 15px 0;">
-  <div style="display: flex; align-items: center; margin-bottom: 20px;">
-    <strong style="width: 100px;">main</strong>
-    <div style="display: flex; align-items: center; gap: 15px;">
-      <span style="font-size: 20px;">●</span>
-      <span style="font-size: 20px;">─</span>
-      <span style="font-size: 20px;">●</span>
-      <span style="font-size: 20px;">─</span>
-      <span style="font-size: 20px; color: #667eea;">●</span>
-      <span style="font-size: 20px;">─</span>
-      <span style="font-size: 20px;">●</span>
-      <span style="font-size: 20px;">─</span>
-      <span style="font-size: 24px; color: #e53e3e;">◉</span>
-    </div>
-  </div>
-  <div style="display: flex; align-items: center;">
-    <strong style="width: 100px;">feature</strong>
-    <div style="display: flex; align-items: center; gap: 15px; margin-left: 74px;">
-      <span style="font-size: 20px; color: #48bb78;">●</span>
-      <span style="font-size: 20px; color: #48bb78;">─</span>
-      <span style="font-size: 20px; color: #48bb78;">●</span>
-      <span style="font-size: 20px; color: #48bb78;">─</span>
-      <span style="font-size: 20px; color: #48bb78;">●</span>
+  <div>
+    <p style="text-align: center; font-weight: bold; margin-bottom: 10px;">2. Merge commit (fusion)</p>
+    <div class="mermaid">
+gitGraph
+  commit id: "C1"
+  commit id: "C2"
+  branch feature
+  checkout feature
+  commit id: "F1"
+  commit id: "F2"
+  commit id: "F3"
+  checkout main
+  commit id: "C3"
+  merge feature
     </div>
   </div>
 </div>
