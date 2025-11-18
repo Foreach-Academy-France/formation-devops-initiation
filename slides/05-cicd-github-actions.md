@@ -222,16 +222,16 @@ timeline
 
 <div class="mermaid">
 flowchart TD
-    A[1. Checkout] --> B[2. Install]
-    B --> C[3. Lint]
-    C --> D[4. Test]
+    A["1. Checkout<br>Clone du repo"] --> B["2. Install<br>npm install"]
+    B --> C["3. Lint<br>ESLint"]
+    C --> D["4. Test<br>Vitest / pytest"]
     D --> E[Unit tests]
     D --> F[Integration tests]
-    E --> G[5. Build]
+    E --> G["5. Build<br>vite build"]
     F --> G
-    G --> H[6. Upload]
-    H --> I[7. Deploy Staging]
-    I --> J[8. Deploy Production]
+    G --> H["6. Upload<br>Artifact"]
+    H --> I["7. Deploy<br>Staging"]
+    I --> J["8. Deploy<br>Production"]
 
     style A fill:#3b82f6,color:#fff
     style B fill:#3b82f6,color:#fff
@@ -274,11 +274,11 @@ flowchart TD
 
 <div class="mermaid">
 flowchart TD
-    A[Repository] --> B[WORKFLOW]
-    B --> C[EVENTS]
-    C --> D[JOBS]
-    D --> E[STEPS]
-    E --> F[ACTIONS]
+    A["Repository<br>.github/workflows/"] --> B["WORKFLOW<br>ci.yml, deploy.yml"]
+    B --> C["EVENTS<br>push, pull_request"]
+    C --> D["JOBS<br>Steps parallèles"]
+    D --> E["STEPS<br>run: ou uses:"]
+    E --> F["ACTIONS<br>Marketplace"]
 
     style A fill:#6b7280,color:#fff
     style B fill:#3b82f6,color:#fff
@@ -286,15 +286,6 @@ flowchart TD
     style D fill:#8b5cf6,color:#fff
     style E fill:#48bb78,color:#fff
     style F fill:#ec4899,color:#fff
-</div>
-
-<div style="margin-top: 20px; font-size: 16px;">
-<strong>Repository</strong> → .github/workflows/<br>
-<strong>WORKFLOW</strong> → Fichiers YAML (ci.yml, deploy.yml)<br>
-<strong>EVENTS</strong> → Triggers (push, pull_request, schedule)<br>
-<strong>JOBS</strong> → Ensemble de steps (parallèles ou séquentiels)<br>
-<strong>STEPS</strong> → Actions individuelles (run: ou uses:)<br>
-<strong>ACTIONS</strong> → Code réutilisable (Marketplace ou custom)
 </div>
 
 ---
