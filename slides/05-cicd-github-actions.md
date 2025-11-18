@@ -232,17 +232,6 @@ flowchart LR
     G --> H[Upload]
     H --> I[Deploy Staging]
     I --> J[Deploy Prod]
-
-    style A fill:#3b82f6,color:#fff
-    style B fill:#3b82f6,color:#fff
-    style C fill:#f59e0b,color:#fff
-    style D fill:#f59e0b,color:#fff
-    style E fill:#fbbf24,color:#000
-    style F fill:#fbbf24,color:#000
-    style G fill:#48bb78,color:#fff
-    style H fill:#48bb78,color:#fff
-    style I fill:#8b5cf6,color:#fff
-    style J fill:#e53e3e,color:#fff
 ```
 
 **Checkout** → Clone repo | **Install** → Dépendances | **Lint** → ESLint | **Test** → Vitest/pytest | **Build** → vite/docker | **Upload** → Artifacts | **Deploy** → Staging puis Prod
@@ -281,13 +270,6 @@ flowchart TD
     C --> D[JOBS]
     D --> E[STEPS]
     E --> F[ACTIONS]
-
-    style A fill:#6b7280,color:#fff
-    style B fill:#3b82f6,color:#fff
-    style C fill:#f59e0b,color:#fff
-    style D fill:#8b5cf6,color:#fff
-    style E fill:#48bb78,color:#fff
-    style F fill:#ec4899,color:#fff
 ```
 
 **Repository** (.github/workflows/) → **WORKFLOW** (ci.yml) → **EVENTS** (push, PR) → **JOBS** (parallèles) → **STEPS** (run:/uses:) → **ACTIONS** (Marketplace)
