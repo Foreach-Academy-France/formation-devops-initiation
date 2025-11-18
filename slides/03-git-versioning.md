@@ -67,6 +67,12 @@ style: |
   }
 ---
 
+<!-- Mermaid support -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+</script>
+
 <!-- _class: lead -->
 # Module 3
 
@@ -248,31 +254,18 @@ index 0000000..abc1234
 
 > Une branche est une ligne de développement **indépendante**
 
-<div style="background: #f5f5f5; padding: 30px; border-radius: 10px; margin: 20px 0;">
-  <div style="display: flex; align-items: center; margin-bottom: 30px;">
-    <strong style="width: 100px;">main</strong>
-    <div style="display: flex; align-items: center; gap: 20px;">
-      <span style="font-size: 24px;">●</span>
-      <span style="font-size: 24px;">─</span>
-      <span style="font-size: 24px;">●</span>
-      <span style="font-size: 24px;">─</span>
-      <span style="font-size: 24px; color: #667eea;">●</span>
-      <span style="font-size: 24px;">─</span>
-      <span style="font-size: 24px; color: #667eea;">●</span>
-      <span style="font-size: 24px;">─</span>
-      <span style="font-size: 24px;">●</span>
-    </div>
-  </div>
-  <div style="display: flex; align-items: center;">
-    <strong style="width: 100px;">feature</strong>
-    <div style="display: flex; align-items: center; gap: 20px; margin-left: 84px;">
-      <span style="font-size: 24px; color: #48bb78;">●</span>
-      <span style="font-size: 24px; color: #48bb78;">─</span>
-      <span style="font-size: 24px; color: #48bb78;">●</span>
-      <span style="font-size: 24px; color: #48bb78;">─</span>
-      <span style="font-size: 24px; color: #48bb78;">●</span>
-    </div>
-  </div>
+<div class="mermaid">
+gitGraph
+  commit id: "Initial"
+  commit id: "Setup"
+  branch feature
+  checkout feature
+  commit id: "Work 1"
+  commit id: "Work 2"
+  commit id: "Work 3"
+  checkout main
+  commit id: "Bugfix"
+  merge feature
 </div>
 
 **Utilité :**
