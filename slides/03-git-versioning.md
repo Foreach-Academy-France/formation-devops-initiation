@@ -481,15 +481,39 @@ Un modèle de branching pour gérer les releases
 
 ## 🌊 GitFlow : Structure
 
-```
-main        ●───────────●───────● (v1.0)(v1.1)
-             \         / \     /
-release       \       ●───●───●
-               \     /       /
-develop    ●────●───●───●───●───●
-            \     / \     /
-feature/*    ●───●   ●───●
-```
+<div class="mermaid">
+gitGraph
+  commit id: "Initial"
+  branch develop
+  checkout develop
+  commit id: "Setup"
+  branch feature/login
+  checkout feature/login
+  commit id: "Login UI"
+  commit id: "Auth API"
+  checkout develop
+  merge feature/login
+  branch feature/profile
+  checkout feature/profile
+  commit id: "Profile view"
+  commit id: "Edit profile"
+  checkout develop
+  merge feature/profile
+  branch release/1.0
+  checkout release/1.0
+  commit id: "Fix tests"
+  commit id: "Update docs"
+  checkout main
+  merge release/1.0 tag: "v1.0"
+  checkout develop
+  merge release/1.0
+  commit id: "New feature"
+  branch release/1.1
+  checkout release/1.1
+  commit id: "Prepare 1.1"
+  checkout main
+  merge release/1.1 tag: "v1.1"
+</div>
 
 ---
 
