@@ -248,11 +248,32 @@ index 0000000..abc1234
 
 > Une branche est une ligne de développement **indépendante**
 
-```
-main     ●───●───●───●───●
-              \         /
-feature        ●───●───●
-```
+<div style="background: #f5f5f5; padding: 30px; border-radius: 10px; margin: 20px 0;">
+  <div style="display: flex; align-items: center; margin-bottom: 30px;">
+    <strong style="width: 100px;">main</strong>
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <span style="font-size: 24px;">●</span>
+      <span style="font-size: 24px;">─</span>
+      <span style="font-size: 24px;">●</span>
+      <span style="font-size: 24px;">─</span>
+      <span style="font-size: 24px; color: #667eea;">●</span>
+      <span style="font-size: 24px;">─</span>
+      <span style="font-size: 24px; color: #667eea;">●</span>
+      <span style="font-size: 24px;">─</span>
+      <span style="font-size: 24px;">●</span>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center;">
+    <strong style="width: 100px;">feature</strong>
+    <div style="display: flex; align-items: center; gap: 20px; margin-left: 84px;">
+      <span style="font-size: 24px; color: #48bb78;">●</span>
+      <span style="font-size: 24px; color: #48bb78;">─</span>
+      <span style="font-size: 24px; color: #48bb78;">●</span>
+      <span style="font-size: 24px; color: #48bb78;">─</span>
+      <span style="font-size: 24px; color: #48bb78;">●</span>
+    </div>
+  </div>
+</div>
 
 **Utilité :**
 - Développer une fonctionnalité sans impacter `main`
