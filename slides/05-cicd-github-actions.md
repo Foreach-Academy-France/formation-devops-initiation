@@ -221,17 +221,17 @@ timeline
 ## Anatomie d'un Pipeline CI/CD
 
 <div class="mermaid">
-flowchart TD
-    A["1. Checkout<br>Clone du repo"] --> B["2. Install<br>npm install"]
-    B --> C["3. Lint<br>ESLint"]
-    C --> D["4. Test<br>Vitest / pytest"]
-    D --> E[Unit tests]
-    D --> F[Integration tests]
-    E --> G["5. Build<br>vite build"]
+flowchart LR
+    A[Checkout] --> B[Install]
+    B --> C[Lint]
+    C --> D[Test]
+    D --> E[Unit]
+    D --> F[Integration]
+    E --> G[Build]
     F --> G
-    G --> H["6. Upload<br>Artifact"]
-    H --> I["7. Deploy<br>Staging"]
-    I --> J["8. Deploy<br>Production"]
+    G --> H[Upload]
+    H --> I[Deploy Staging]
+    I --> J[Deploy Prod]
 
     style A fill:#3b82f6,color:#fff
     style B fill:#3b82f6,color:#fff
@@ -244,6 +244,8 @@ flowchart TD
     style I fill:#8b5cf6,color:#fff
     style J fill:#e53e3e,color:#fff
 </div>
+
+**Checkout** → Clone repo | **Install** → Dépendances | **Lint** → ESLint | **Test** → Vitest/pytest | **Build** → vite/docker | **Upload** → Artifacts | **Deploy** → Staging puis Prod
 
 ---
 
@@ -274,11 +276,11 @@ flowchart TD
 
 <div class="mermaid">
 flowchart TD
-    A["Repository<br>.github/workflows/"] --> B["WORKFLOW<br>ci.yml, deploy.yml"]
-    B --> C["EVENTS<br>push, pull_request"]
-    C --> D["JOBS<br>Steps parallèles"]
-    D --> E["STEPS<br>run: ou uses:"]
-    E --> F["ACTIONS<br>Marketplace"]
+    A[Repository] --> B[WORKFLOW]
+    B --> C[EVENTS]
+    C --> D[JOBS]
+    D --> E[STEPS]
+    E --> F[ACTIONS]
 
     style A fill:#6b7280,color:#fff
     style B fill:#3b82f6,color:#fff
@@ -287,6 +289,8 @@ flowchart TD
     style E fill:#48bb78,color:#fff
     style F fill:#ec4899,color:#fff
 </div>
+
+**Repository** (.github/workflows/) → **WORKFLOW** (ci.yml) → **EVENTS** (push, PR) → **JOBS** (parallèles) → **STEPS** (run:/uses:) → **ACTIONS** (Marketplace)
 
 ---
 
