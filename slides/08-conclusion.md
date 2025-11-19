@@ -56,11 +56,30 @@ style: |
   li {
     margin: 5px 0;
   }
+  pre {
+    font-size: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    background: #1e1e1e !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  pre code {
+    background: transparent !important;
+    color: #d4d4d4;
+    font-size: 15px;
+  }
   .success {
     color: #10b981;
     font-weight: bold;
   }
 ---
+
+<!-- Mermaid support -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+</script>
 
 <!-- _class: lead -->
 
